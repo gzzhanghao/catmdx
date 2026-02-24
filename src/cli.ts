@@ -20,7 +20,7 @@ program
     'Print specific section from markdown content (e.g. "Introduction" or "#2")',
   )
   .action(async (file, options) => {
-    if (!options.file && !options.content && !options.stdin) {
+    if (!file && !options.content && !options.stdin) {
       program
         .addHelpText(
           'after',
