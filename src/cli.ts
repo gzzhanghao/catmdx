@@ -40,7 +40,7 @@ program
       contents.push(`---\n${tokens[0].metadata}\n---`);
     }
     if (options.toc) {
-      contents.push(`[TOC]\n${getTOC(tokens)}`);
+      contents.push(getTOC(tokens));
     }
     if (options.section) {
       const section = getSection(tokens, options.section);
