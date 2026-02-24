@@ -8,7 +8,7 @@ Read markdown efficiently.
 # read metadata, TOC and the '#Usage' section from target markdown
 npx catmdx README.md --metadata --toc --section 'Usage'
 
-# or - read TOC from online files
+# or - read from online files
 curl https://raw.githubusercontent.com/gzzhanghao/catmdx/refs/heads/main/README.md | npx catmdx --toc --stdin
 ```
 
