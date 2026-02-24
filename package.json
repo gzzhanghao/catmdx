@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gzzhanghao/catmdx"
+    "url": "git+https://github.com/gzzhanghao/catmdx.git"
   },
   "license": "MIT",
   "type": "module",
@@ -15,7 +15,9 @@
     }
   },
   "main": "./dist/index.js",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "catmdx": "bin/cli.js"
+  },
   "files": [
     "bin",
     "dist"
