@@ -7,6 +7,9 @@ Read markdown efficiently.
 ```bash
 # read metadata, TOC and the '#Usage' section from target markdown
 npx catmdx README.md --metadata --toc --section 'Usage'
+
+# or - read TOC from online files
+curl https://raw.githubusercontent.com/gzzhanghao/catmdx/refs/heads/main/README.md | npx catmdx --toc --stdin
 ```
 
 ## Options
@@ -20,7 +23,7 @@ Arguments:
 Options:
   -c, --content <content>  Markdown content provided as a string
   -i, --stdin              Read markdown content from stdin
-  -m, --metadata           Print metadata from markdown content
-  -t, --toc                Print table of contents from markdown content
-  -s, --section <section>  Print specific section from markdown content (e.g. "Introduction" or "#2")
+  -m, --metadata           Print metadata
+  -t, --toc                Print table of contents
+  -s, --section <section>  Print specific section (e.g. "Introduction" or "#2")
 ```

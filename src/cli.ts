@@ -13,11 +13,11 @@ program
   )
   .option('-c, --content <content>', 'Markdown content provided as a string')
   .option('-i, --stdin', 'Read markdown content from stdin')
-  .option('-m, --metadata', 'Print metadata from markdown content')
-  .option('-t, --toc', 'Print table of contents from markdown content')
+  .option('-m, --metadata', 'Print metadata')
+  .option('-t, --toc', 'Print table of contents')
   .option(
     '-s, --section <section>',
-    'Print specific section from markdown content (e.g. "Introduction" or "#2")',
+    'Print specific section (e.g. "Introduction" or "#2")',
   )
   .action(async (file, options) => {
     if (!file && !options.content && !options.stdin) {
