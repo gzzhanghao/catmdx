@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`normalizeMarkdown > extracts metadata 1`] = `
+{
+  "content": "# Hello",
+  "metadata": "title: Hello",
+}
+`;
+
+exports[`normalizeMarkdown > handle BOM 1`] = `
+{
+  "content": "# Hello",
+  "metadata": undefined,
+}
+`;
+
+exports[`normalizeMarkdown > handles separator 1`] = `
+{
+  "content": "# Hello
+---",
+  "metadata": "title: Hello",
+}
+`;
+
+exports[`normalizeMarkdown > missing close delimiter 1`] = `
+{
+  "content": "---
+title: Hello",
+  "metadata": undefined,
+}
+`;
+
+exports[`normalizeMarkdown > without metadata 1`] = `
+{
+  "content": "# Hello",
+  "metadata": undefined,
+}
+`;
