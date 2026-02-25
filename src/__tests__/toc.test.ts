@@ -15,8 +15,14 @@ describe('getTOC', async () => {
 
 function test(filename: string) {
   it(filename, async () => {
-    const tokens = await load(filename);
-    const result = getTOC(tokens);
+    const md = await load(filename);
+    const result = getTOC(md);
+    expect(result).toMatchSnapshot();
+  });
+
+  it(`${filename} - with metadata`, async () => {
+    const md = await load(filename);
+    const result = getTOC(md, { tocMetadata: true });
     expect(result).toMatchSnapshot();
   });
 }

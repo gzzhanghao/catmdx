@@ -1,37 +1,39 @@
-import { MarkdownSectionStart, WalkerToken } from './walker';
+import { MarkdownInfo } from './parser';
+import { walkMarkdown } from './walker';
 
-export function getSection(tokens: WalkerToken[], titleOrNumber: string) {
-  const iter = tokens.values();
-  let start: MarkdownSectionStart | undefined;
+export interface GetSectionOptions {
+  section: string[];
+  recursive?: boolean;
+}
 
-  // Read until target section start
-  for (const token of iter) {
-    if (token.type !== 'section-start') {
-      continue;
-    }
-    if (
-      titleOrNumber === token.startToken.text ||
-      titleOrNumber === `#${token.levelParts.join('.')}`
-    ) {
-      start = token;
-      break;
-    }
-  }
-
-  if (!start) {
-    return;
-  }
-
+export function getSections(md: MarkdownInfo, options: GetSectionOptions) {
+  const iter = walkMarkdown(md.root);
   let content = '';
 
-  // Print all tokens until target section end
-  for (const token of iter) {
-    if (token.type === 'section-end' && token.startToken === start.startToken) {
-      break;
+  for (let res = iter.next(); !res.done; ) {
+    const sect = res.value;
+
+    const num = `#${sect.numbers.join('.') || 'ROOT'}`;
+    const text = sect.headingToken?.text || '';
+
+    const isMatched = options.section.some(
+      (target) => target === text || target === num,
+    );
+    if (!isMatched) {
+      res = iter.next();
+      continue;
     }
-    if (token.type === 'token') {
-      content += token.token.raw;
+
+    for (const target of options.recursive ? walkMarkdown(sect) : [sect]) {
+      if (target.headingToken) {
+        content += target.headingToken.raw;
+      }
+      for (const token of target.tokens) {
+        content += token.raw;
+      }
     }
+
+    res = iter.next(options.recursive);
   }
 
   return content;

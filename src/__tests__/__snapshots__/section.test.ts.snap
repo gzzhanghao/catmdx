@@ -1,27 +1,23 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`getSection > empty.md - any title 1`] = `undefined`;
+exports[`getSections > empty.md - {"section":["any title"]} 1`] = `""`;
 
-exports[`getSection > metadata.md - Metadata 1`] = `
+exports[`getSections > metadata.md - {"section":["Metadata"]} 1`] = `
 "# Metadata
 "
 `;
 
-exports[`getSection > metadata-without-body.md - any title 1`] = `undefined`;
+exports[`getSections > metadata-without-body.md - {"section":["any title"]} 1`] = `""`;
 
-exports[`getSection > nested.md - #1.1.2 1`] = `
+exports[`getSections > nested.md - {"section":["#1.1.2"]} 1`] = `
 "### h3-2
 
 Content of h3-2.
 
-#### h4-2
-
-Content of h4-2.
-
 "
 `;
 
-exports[`getSection > nested.md - h3 1`] = `
+exports[`getSections > nested.md - {"section":["h3"],"recursive":true} 1`] = `
 "### h3
 
 Content of h3.
@@ -37,6 +33,20 @@ Content of h5.
 #### h4-1
 
 Content of h4-1.
+
+"
+`;
+
+exports[`getSections > nested.md - {"section":["h3"]} 1`] = `
+"### h3
+
+Content of h3.
+
+"
+`;
+
+exports[`getSections > without-heading.md - {"section":["#ROOT"]} 1`] = `
+"Test without heading.
 
 "
 `;
