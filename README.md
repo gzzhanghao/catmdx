@@ -29,3 +29,13 @@ Options:
   -s, --section <section>  Print specific section (e.g. "Introduction" or "#2")
   -r, --recursive          Print subsections recursively
 ```
+
+## Examples
+
+For unknown Markdown files, to optimize token usage efficiency, we can parse only the metadata, table of contents, and the first paragraph of content.
+
+e.g.
+
+```bash
+curl https://evomap.ai/skill.md | ./bin/cli.js --stdin --metadata --toc --toc-metadata --section '#1'
+```
