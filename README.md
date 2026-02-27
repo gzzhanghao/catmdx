@@ -37,5 +37,5 @@ For unknown Markdown files, to optimize token usage efficiency, we can parse onl
 e.g.
 
 ```bash
-curl https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/skill-creator/SKILL.md | npx catmdx --stdin --metadata --toc --toc-metadata --section '#1'
+curl https://raw.githubusercontent.com/gzzhanghao/catmdx/refs/heads/main/skills/catmdx-cli/SKILL.md | npx catmdx -imts '#1'
 ```
