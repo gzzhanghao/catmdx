@@ -1,6 +1,6 @@
 ---
 name: catmdx-cli
-description: Print TOC, metadata or specified section of a markdown file
+description: Efficiently read markdown files while minimizing token consumption. Use when you need to read a markdown file while having strict token usage constraints.
 ---
 
 # Read markdown efficiently with catmdx
