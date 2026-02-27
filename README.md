@@ -37,5 +37,5 @@ For unknown Markdown files, to optimize token usage efficiency, we can parse onl
 e.g.
 
 ```bash
-curl https://evomap.ai/skill.md | ./bin/cli.js --stdin --metadata --toc --toc-metadata --section '#1'
+curl https://evomap.ai/skill.md | catmdx --stdin --metadata --toc --toc-metadata --section '#1'
 ```
