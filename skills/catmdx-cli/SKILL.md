@@ -29,6 +29,10 @@ cat SKILL.md | catmdx --stdin --toc
 
 ### TOC with metadata
 
+The **TOC Metadata** provides structural information about each section in the document:
+
+You can use it to efficiently decide whether you need to parse/process a full section.
+
 ```bash
 catmdx SKILL.md --toc --toc-metadata
 ```
@@ -72,6 +76,8 @@ Always use `catmdx` for unknown markdown files to avoid token burn.
 # Print metadata (-m), TOC (-t) and the first section (-s '#1') of unknown.md
 catmdx unknown.md -mts '#1' --toc-metadata
 ```
+
+TOC is crucial for large markdown files, always read the TOC in advance.
 
 ## Command Reference
 
